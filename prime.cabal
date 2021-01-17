@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ea652b921f3edb6e6b9a696cf6f8e00877bc3e051ffd6be7fab34355db572366
+-- hash: b9f267fb2c3c0c3f2ea520ebe3cba8513cb5b7d94bc9475d5c3e02f9eb0cec89
 
 name:           prime
-version:        0.0.0
+version:        0.1.0
 synopsis:       prime number tools
 description:    Please see the README on GitHub at <https://github.com/jlamothe/prime#readme>
 category:       Math
