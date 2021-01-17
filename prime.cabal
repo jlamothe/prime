@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 129d069fb8e33ec0a51ee6a67b0c652f77fc07870879a257a90c72f4e9804de6
+-- hash: ea652b921f3edb6e6b9a696cf6f8e00877bc3e051ffd6be7fab34355db572366
 
 name:           prime
 version:        0.0.0
@@ -43,6 +43,7 @@ test-suite prime-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      Data.Prime.IsPrimeSpec
       Data.Prime.PrimesSpec
       Data.PrimeSpec
       Paths_prime

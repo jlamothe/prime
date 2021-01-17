@@ -19,16 +19,30 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 -}
 
-module Data.PrimeSpec (spec) where
+{-# LANGUAGE ScopedTypeVariables #-}
 
-import Test.Hspec (Spec, describe)
+module Data.Prime.IsPrimeSpec (spec) where
 
-import qualified Data.Prime.PrimesSpec as Primes
-import qualified Data.Prime.IsPrimeSpec as IsPrime
+import Test.Hspec (Spec, context, describe, it, shouldBe)
+
+import Data.Prime
 
 spec :: Spec
-spec = describe "Data.Prime" $ do
-  Primes.spec
-  IsPrime.spec
+spec = describe "isPrime" $ mapM_
+  ( \(input :: Integer, expected) -> context (show input) $
+    it ("should be " ++ show expected) $
+      isPrime input `shouldBe` expected
+  )
+
+  --  input,  expected
+  [ ( -1,              False    )
+  , ( 0,               False    )
+  , ( 1,               False    )
+  , ( 2,               True     )
+  , ( 3,               True     )
+  , ( 4,               False    )
+  , ( 104729,          True     )
+  , ( 104729 * 104723, False    )
+  ]
 
 --jl

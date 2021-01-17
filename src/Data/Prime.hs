@@ -22,7 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 -}
 
-module Data.Prime (primes) where
+module Data.Prime (primes, isPrime) where
 
 -- | a list of all prime numbers
 primes :: [Integer]
@@ -30,6 +30,12 @@ primes = f 2 [] where
   f n ps = if checkPrimes n ps
     then n : f (succ n) (ps ++ [n])
     else f (succ n) ps
+
+isPrime :: Integral n => n -> Bool
+isPrime n
+  | n < 2     = False
+  | n == 2    = True
+  | otherwise = checkPrimes (toInteger n) primes
 
 checkPrimes :: Integer -> [Integer] -> Bool
 checkPrimes _ [] = True
