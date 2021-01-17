@@ -1,0 +1,41 @@
+name:                prime
+version:             0.0.0
+github:              "jlamothe/prime"
+license:             GPL-3
+author:              "Jonathan Lamothe"
+maintainer:          "jonathan@jlamothe.net"
+copyright:           "(C) 2021 Jonathan Lamothe"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+synopsis:            prime number tools
+category:            Math
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/jlamothe/prime#readme>
+
+ghc-options:
+- -Wall
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+tests:
+  prime-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - prime
+    - hspec >= 2.7.6 && < 2.8
