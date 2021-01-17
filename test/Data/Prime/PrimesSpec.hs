@@ -1,11 +1,8 @@
-{-|
+{-
 
-Module      : Data.Prime
-Description : prime number tools
-Copyright   : (C) 2021 Jonathan Lamothe
-License     : GPLv3 (or later)
-Maintainer  : jonathan@jlamothe.net
-Stability   : stable
+prime
+
+Copyright (C) 2021 Jonathan Lamothe <jonathan@jlamothe.net>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -22,20 +19,17 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 -}
 
-module Data.Prime (primes) where
+module Data.Prime.PrimesSpec (spec) where
 
--- | a list of all prime numbers
-primes :: [Integer]
-primes = f 2 [] where
-  f n ps = if checkPrimes n ps
-    then n : f (succ n) (ps ++ [n])
-    else f (succ n) ps
+import Test.Hspec (Spec, describe, it, shouldBe)
 
-checkPrimes :: Integer -> [Integer] -> Bool
-checkPrimes _ [] = True
-checkPrimes n (p:ps)
-  | n `mod` p == 0 = False
-  | p * p > n      = True
-  | otherwise      = checkPrimes n ps
+import Data.Prime
+
+spec :: Spec
+spec = describe "primes" $ let
+  expected = [2, 3, 5, 7, 11, 13, 17, 19, 23]
+  len      = length expected
+  in it ("should be " ++ show expected) $
+    take len primes `shouldBe` expected
 
 --jl

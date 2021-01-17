@@ -23,7 +23,9 @@ module Main where
 
 import Test.Hspec (hspec)
 
+import qualified Data.PrimeSpec as Prime
+
 main :: IO ()
-main = hspec $ return ()
+main = hspec Prime.spec
 
 --jl
