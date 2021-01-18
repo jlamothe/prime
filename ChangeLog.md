@@ -1,6 +1,6 @@
 # Changelog for prime
 
-## current
+## v0.1.1
 
 - implemented Data.Prime.isComposite
 - minor refactoring
