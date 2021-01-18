@@ -1,3 +1,7 @@
 # Changelog for prime
 
-## Unreleased changes
+## current
+
+## 0.1.0.1
+
+- added missing documentation
