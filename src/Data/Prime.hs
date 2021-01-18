@@ -33,16 +33,15 @@ primes = f 2 [] where
 
 -- | checks to see if a given number is prime
 isPrime :: Integral n => n -> Bool
-isPrime n
-  | n < 2     = False
-  | n == 2    = True
-  | otherwise = checkPrimes (toInteger n) primes
+isPrime n = if n < 2
+  then False
+  else checkPrimes (toInteger n) primes
 
 checkPrimes :: Integer -> [Integer] -> Bool
 checkPrimes _ [] = True
 checkPrimes n (p:ps)
-  | n `mod` p == 0 = False
   | p * p > n      = True
+  | n `mod` p == 0 = False
   | otherwise      = checkPrimes n ps
 
 --jl
