@@ -22,7 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 -}
 
-module Data.Prime (primes, isPrime) where
+module Data.Prime (primes, isPrime, isComposite) where
 
 -- | a list of all prime numbers
 primes :: [Integer]
@@ -36,6 +36,12 @@ isPrime :: Integral n => n -> Bool
 isPrime n = if n < 2
   then False
   else checkPrimes (toInteger n) primes
+
+-- | checks to see if a given number is composite
+isComposite :: Integral n => n -> Bool
+isComposite n = if n < 2
+  then False
+  else not $ checkPrimes (toInteger n) primes
 
 checkPrimes :: Integer -> [Integer] -> Bool
 checkPrimes _ [] = True
