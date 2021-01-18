@@ -31,6 +31,7 @@ primes = f 2 [] where
     then n : f (succ n) (ps ++ [n])
     else f (succ n) ps
 
+-- | checks to see if a given number is prime
 isPrime :: Integral n => n -> Bool
 isPrime n
   | n < 2     = False
